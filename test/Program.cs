@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
+Console.Clear();
+
 // Функция ввод массива
 string[] FillArray()
 {
@@ -62,6 +64,7 @@ string[] GenerateNewArray(string[] workArray)
 }
 
 string[] workArray = FillArray(); // ввод исходного массива
+Console.Clear();
 string[] resultArray = GenerateNewArray(workArray); // создание результирующего массива
 string firstArray = PrintArray(workArray); // печать исходного массива
 string secondArray = PrintArray(resultArray); // печать результирующего массива
