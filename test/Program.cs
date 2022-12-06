@@ -28,6 +28,43 @@ string PrintArray(string[] workArray)
     stringArray += "]";
     return stringArray;
 }
+
+// Функция подсчета количества элементов меньше либо равных 3м символам
+int CountStringSymbols(string[] workArray)
+{
+    int counter = 0;
+    foreach (string item in workArray)
+    {
+        if (item.Length <= 3)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+
+// Функция создания нового массива из элемтов меньше либо равных 3 символам
+string[] GenerateNewArray(string[] workArray)
+{
+    int resultArrayLength = CountStringSymbols(workArray);
+    string[] resultArray = new string[resultArrayLength];
+    int i = 0;
+    foreach (string item in workArray)
+    {
+        if (item.Length <= 3)
+        {
+            resultArray[i] = item;
+            i++;
+        }
+    }
+    return resultArray;
+}
+
 string[] workArray = FillArray(); // ввод исходного массива
-string firstArray = PrintArray(workArray); // вывод исходного массива
-Console.WriteLine(firstArray); // печать исходного массива
+string[] resultArray = GenerateNewArray(workArray); // создание результирующего массива
+string firstArray = PrintArray(workArray); // печать исходного массива
+string secondArray = PrintArray(resultArray); // печать результирующего массива
+Console.WriteLine(firstArray);
+Console.WriteLine(" -> ");
+Console.WriteLine(secondArray);
